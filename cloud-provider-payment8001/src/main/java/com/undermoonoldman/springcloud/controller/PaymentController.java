@@ -18,6 +18,7 @@ import java.util.concurrent.TimeUnit;
  * (Payment)表控制层
  */
 @RestController
+@RequestMapping("/payment")
 @Slf4j
 public class PaymentController {
     /**
@@ -35,7 +36,7 @@ public class PaymentController {
     @Resource
     private DiscoveryClient discoveryClient;
 
-    @PostMapping(value = "/payment/create")
+    @PostMapping(value = "/create")
     public CommonResult create(@RequestBody Payment payment){
         int result = paymentService.create(payment);
         log.info("******插入结果"+result);
@@ -45,7 +46,9 @@ public class PaymentController {
             return new CommonResult(444,"插入数据库失败,serverPort:"+serverPort);
         }
     }
-    @GetMapping(value = "/payment/get/{id}")
+
+
+    @GetMapping(value = "/get/{id}")
     public CommonResult<Payment> getPaymentById(@PathVariable("id") Long id){
         Payment payment = paymentService.getPaymentById(id);
         log.info("******查询结果"+payment);
@@ -55,7 +58,9 @@ public class PaymentController {
             return new CommonResult(444,"没有对应记录,查询ID："+id);
         }
     }
-    @GetMapping(value = "/payment/discovery")
+
+
+    @GetMapping(value = "/discovery")
     public Object discovery(){
         List<String> services = discoveryClient.getServices();
         for (String element : services) {
@@ -67,27 +72,27 @@ public class PaymentController {
         }
         return discoveryClient;
     }
-
-    /**
-     * 自定义负载均衡算法测试接口
-     * @return
-     */
-    @GetMapping(value ="/payment/lb")
-    public String getPaymentLB(){
-        return serverPort;
-    }
-
-
-    /**
-     * Feign超时演示
-     */
-    @GetMapping("/payment/feign/timeout")
-    public String paymentFeignTimeout(){
-        try {
-            TimeUnit.SECONDS.sleep(3);
-        } catch (InterruptedException e) {
-            e.printStackTrace();
-        }
-        return serverPort;
-    }
+//
+//    /**
+//     * 自定义负载均衡算法测试接口
+//     * @return
+//     */
+//    @GetMapping(value ="/lb")
+//    public String getPaymentLB(){
+//        return serverPort;
+//    }
+//
+//
+//    /**
+//     * Feign超时演示
+//     */
+//    @GetMapping("/feign/timeout")
+//    public String paymentFeignTimeout(){
+//        try {
+//            TimeUnit.SECONDS.sleep(3);
+//        } catch (InterruptedException e) {
+//            e.printStackTrace();
+//        }
+//        return serverPort;
+//    }
 }
