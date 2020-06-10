@@ -72,27 +72,28 @@ public class PaymentController {
         }
         return discoveryClient;
     }
-//
-//    /**
-//     * 自定义负载均衡算法测试接口
-//     * @return
-//     */
-//    @GetMapping(value ="/lb")
-//    public String getPaymentLB(){
-//        return serverPort;
-//    }
-//
-//
-//    /**
-//     * Feign超时演示
-//     */
-//    @GetMapping("/feign/timeout")
-//    public String paymentFeignTimeout(){
-//        try {
-//            TimeUnit.SECONDS.sleep(3);
-//        } catch (InterruptedException e) {
-//            e.printStackTrace();
-//        }
-//        return serverPort;
-//    }
+
+
+    /**
+     * 自定义负载均衡算法测试接口
+     * @return
+     */
+    @GetMapping(value ="/lb")
+    public String getPaymentLB(){
+        return serverPort;
+    }
+
+
+    /**
+     * Feign超时演示
+     */
+    @GetMapping("/feign/timeout")
+    public String paymentFeignTimeout(){
+        try {
+            TimeUnit.SECONDS.sleep(3);
+        } catch (InterruptedException e) {
+            e.printStackTrace();
+        }
+        return serverPort;
+    }
 }

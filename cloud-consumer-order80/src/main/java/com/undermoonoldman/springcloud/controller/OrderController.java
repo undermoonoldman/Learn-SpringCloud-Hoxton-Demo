@@ -61,7 +61,7 @@ public class OrderController {
     /*@GetMapping(value = "/lb")
     public String getPaymentLB(){
         List<ServiceInstance> instances = discoveryClient.getInstances("CLOUD-PAYMENT-SERVICE");
-        if (instances ==null || instances.size()<=0){
+        if (instances ==null || instances.size()<= 0){
             return null;
         }
         *//*传入自己的*//*

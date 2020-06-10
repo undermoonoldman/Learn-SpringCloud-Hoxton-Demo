@@ -9,6 +9,7 @@ import org.springframework.cloud.netflix.ribbon.RibbonClient;
 
 @SpringBootApplication
 @EnableDiscoveryClient
+//取消注释开启自定义指定轮训规则
 //@RibbonClient(name="CLOUD-PAYMENT-SERVICE",configuration = MySelfRule.class)
 public class OrderMain80 {
     public static void main(String[] args) {
