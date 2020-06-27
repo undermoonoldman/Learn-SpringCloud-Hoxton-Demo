@@ -70,4 +70,12 @@ public class OrderController {
         return restTemplate.getForObject(uri+"/payment/lb",String.class);
     }*/
 
+    /**
+     * 链路调用监控
+     * @return
+     */
+    @GetMapping(value ="/consumer/payment/zipkin")
+    public String paymentZipkin(){
+        return restTemplate.getForObject(PAYMENT_URL+"/payment/zipkin",String.class);
+    }
 }

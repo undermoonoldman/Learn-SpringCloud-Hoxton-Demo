@@ -7,5 +7,5 @@ You can write your documentation in Markdown...
 
 ### Subsection
 
-If you want to filter content with Velocity (files ending in `.vm`), please have a look at
+If you want to com.undermoonoldman.springcloud.filter content with Velocity (files ending in `.vm`), please have a look at
 explanations on [Markdown conflict with Velocity on `##` syntax](./markdown-velocity.html).
