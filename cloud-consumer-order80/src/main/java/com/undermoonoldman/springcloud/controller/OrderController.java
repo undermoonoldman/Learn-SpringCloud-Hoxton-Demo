@@ -71,7 +71,7 @@ public class OrderController {
     }*/
 
     /**
-     * 链路调用监控
+     * 链路调用监控，测试用
      * @return
      */
     @GetMapping(value ="/consumer/payment/zipkin")
